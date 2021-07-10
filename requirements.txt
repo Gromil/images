@@ -1,2 +1,4 @@
 aiohttp==3.7.4
 aioboto3==9.0.0
+mysql-connector-python==8.0.25
+python-dotenv==0.18.0
