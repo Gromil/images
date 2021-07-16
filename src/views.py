@@ -37,3 +37,23 @@ async def image_create(request: web.Request):
     cursor.execute(sql, val)
     db.commit()
     return web.json_response(status=201)
+
+
+async def subscribe(request: web.Request):
+    data = await request.json()
+    sql = 'INSERT INTO subscription (email) VALUES (%s)'
+    val = (data['email'],)
+    cursor = db.cursor()
+    cursor.execute(sql, val)
+    db.commit()
+    return web.json_response(status=200)
+
+
+async def unsubscribe(request: web.Request):
+    data = await request.json()
+    sql = "DELETE FROM subscription WHERE email = %s"
+    value = (data['email'],)
+    cursor = db.cursor()
+    cursor.execute(sql, value)
+    db.commit()
+    return web.json_response(status=200)

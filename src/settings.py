@@ -43,3 +43,10 @@ cursor.execute(
     "size INTEGER(255)"
     ")"
 )
+
+cursor.execute('''
+    CREATE TABLE IF NOT EXISTS subscription(
+    email VARCHAR(255)
+    )
+    '''
+)
